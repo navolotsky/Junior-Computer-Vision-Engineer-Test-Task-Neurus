@@ -1,0 +1,32 @@
+{
+    "mn3l_6_12_15_n_aux_2_simple_convs_k3_all_preds_same_input_size": {
+        "backbone": {
+            "feature_extractor_attr": "features",
+            "path_to": "torchvision.models.mobilenet_v3_large",
+            "args": [],
+            "kwargs": {
+                "pretrained": true
+            }
+        },
+        "detector": {
+            "path_to": "src.models.derived_detectors.ModifiedMobileNetV3LargeBackboneSSMBDLikeDetectorSimpleConvs",
+            "args": [
+                "%backbone"
+            ],
+            "kwargs": {
+                "feature_layers_nums": [
+                    6,
+                    12,
+                    15
+                ],
+                "num_aux_layers": 2,
+                "num_classes": 3,
+                "pred_convs_kwargs": {
+                    "kernel_size": 3,
+                    "padding": 1
+                },
+                "all_preds_layers_have_same_input_size": true
+            }
+        }
+    }
+}
